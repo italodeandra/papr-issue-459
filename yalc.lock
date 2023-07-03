@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "@italodeandra/next": {
+      "signature": "b02533dd188fa341e2dbaca0c7982c00",
+      "file": true
+    }
+  }
+}
