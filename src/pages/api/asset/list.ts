@@ -1,10 +1,5 @@
 import Asset from "../../../collections/asset/Asset";
-import {
-  apiHandlerWrapper,
-  InferApiResponse,
-  queryFnWrapper,
-} from "@italodeandra/next/api/apiHandlerWrapper";
-import { QueryClient, useQuery } from "@tanstack/react-query";
+import { apiHandlerWrapper } from "@italodeandra/next/api/apiHandlerWrapper";
 import connectToDb from "../../../db/db";
 
 async function handler() {
@@ -24,13 +19,3 @@ async function handler() {
 }
 
 export default apiHandlerWrapper(handler);
-
-export type AssetListApiResponse = InferApiResponse<typeof handler>;
-
-const queryKey = "/api/asset/list";
-
-export const useAssetList = () =>
-  useQuery([queryKey], queryFnWrapper<AssetListApiResponse>(queryKey));
-
-export const invalidate_assetList = async (queryClient: QueryClient) =>
-  queryClient.invalidateQueries([queryKey]);
